@@ -8,11 +8,15 @@ class MyComponent extends Component {
         age: 22
     };
 
-    handleClick (event) {
-        console.log(`Clicked me!`);
+    handleClick = (event) => {
+        console.log(`Clicked me! ${this.state.name}`);
+
+        this.setState({
+            name: 'Martijn'
+        })
     }
 
-    handleMouseHover (event) {
+    handleMouseHover = (event) => {
         console.log(`Mouse hovered this button`);
     }
 
