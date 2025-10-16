@@ -1,8 +1,7 @@
 import { Component } from "react";
-import UserInfo from "./UserInfoComponent";
 
-class MyComponent extends Component {
-
+class UserInfo extends Component {
+    
     state = {
         name: 'Hung',
         address: 'Nha Trang',
@@ -31,12 +30,23 @@ class MyComponent extends Component {
         event.preventDefault();
         console.log(this.state);
     }
-
+    
     render(){
         return (
-            <UserInfo/>
+            <div>
+                My name is {this.state.name} and I'm from {this.state.address}
+
+                <button onClick={this.handleClick}>Click me!</button>
+                <button onMouseMove={this.handleMouseHover}>Hover me!</button>
+
+                <form onSubmit={this.handleSubmit}>
+                    <label>Enter name: </label>
+                    <input type="text" onChange={this.handleText} value={this.state.name}/>
+                    <button>Submit</button>
+                </form>
+            </div>
         );
     }
 }
 
-export default MyComponent;
+export default UserInfo;
