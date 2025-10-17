@@ -13,6 +13,7 @@ class DisplayInfo extends Component {
                         return (
                             <div key={user.id}>
                                 User id {user.id} - Name: {user.name} - Age: {user.age}
+                                <button onClick={() => this.props.handleDelUser(user.id)}>Delete</button>
                             </div>
                         )
                     })

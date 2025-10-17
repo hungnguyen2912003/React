@@ -18,11 +18,23 @@ class MyComponent extends Component {
         });
     };
 
+    handleDeleteUser = (id) => {
+        const delList = this.state.listUser.filter(user => user.id !== id);
+        this.setState({
+            listUser: delList
+        });
+    };
+
     render(){
         return (
             <>
-                <UserInfo handleAddUser = {this.handleAddUser}/>
-                <DisplayInfo listUser = {this.state.listUser} />
+                <UserInfo 
+                    handleAddUser = {this.handleAddUser}
+                />
+                <DisplayInfo 
+                    listUser = {this.state.listUser} 
+                    handleDelUser = {this.handleDeleteUser} 
+                />
             </>
         );
     }
