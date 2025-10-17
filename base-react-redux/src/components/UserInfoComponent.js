@@ -26,6 +26,12 @@ class UserInfo extends Component {
         })
     }
 
+    handleAge = (event) => {
+        this.setState ({
+            age: event.target.value
+        })
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(this.state);
@@ -34,14 +40,14 @@ class UserInfo extends Component {
     render(){
         return (
             <div>
-                My name is {this.state.name} and I'm from {this.state.address}
-
                 <button onClick={this.handleClick}>Click me!</button>
                 <button onMouseMove={this.handleMouseHover}>Hover me!</button>
 
                 <form onSubmit={this.handleSubmit}>
                     <label>Enter name: </label>
                     <input type="text" onChange={this.handleText} value={this.state.name}/>
+                    <label>Enter age: </label>
+                    <input type="number" onChange={this.handleAge} value={this.state.age}/>
                     <button>Submit</button>
                 </form>
             </div>

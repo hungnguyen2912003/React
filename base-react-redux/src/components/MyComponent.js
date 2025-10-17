@@ -1,40 +1,23 @@
 import { Component } from "react";
 import UserInfo from "./UserInfoComponent";
+import DisplayInfo from "./DisplayInfoComponent";
 
 class MyComponent extends Component {
 
     state = {
-        name: 'Hung',
-        address: 'Nha Trang',
-        age: 22
-    };
-
-    handleClick = (event) => {
-        console.log(`Clicked me! ${this.state.name}`);
-
-        this.setState({
-            name: 'Martijn'
-        })
-    }
-
-    handleMouseHover = (event) => {
-        console.log(`Mouse hovered this button`);
-    }
-
-    handleText = (event) => {
-        this.setState ({
-            name: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(this.state);
+        listUser: [
+            {id: 1, name: 'Hung Nguyen', age: 22},
+            {id: 2, name: 'Hiep Dang', age: 56},
+            {id: 3, name: 'Khac Tam', age: 58}
+        ]
     }
 
     render(){
         return (
-            <UserInfo/>
+            <div>
+                <UserInfo/>
+                <DisplayInfo listUser = {this.state.listUser} />
+            </div>
         );
     }
 }
