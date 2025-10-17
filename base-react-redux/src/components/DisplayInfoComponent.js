@@ -2,12 +2,12 @@ import { Component } from "react";
 
 class DisplayInfo extends Component {
     render() {
-        //const { name, age } = this.props;
         const { listUser } = this.props;
         console.log(listUser);
         
         return (
             <div>
+                <h2>List users</h2>
                 {
                     listUser.map((user) => {
                         return (
