@@ -14,6 +14,7 @@ class DisplayUsersComponent extends Component {
                             <th>ID</th>
                             <th>Name</th>
                             <th>Age</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,9 @@ class DisplayUsersComponent extends Component {
                                         <td>{user.id}</td>
                                         <td>{user.name}</td>
                                         <td>{user.age}</td>
+                                        <td>
+                                            <button onClick={() => this.props.delete(user.id)}>Delete</button>
+                                        </td>
                                     </tr>
                                 )
                             })

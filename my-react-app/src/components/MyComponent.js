@@ -29,9 +29,17 @@ class MyComponent extends Component {
         })
     }
 
+    handleDelete = (id) => {
+        const del = this.state.listUser.filter(user => user.id !== id);
+        this.setState({
+            listUser: del
+        });
+    };
+
+
     render() {
         return (
-            <div>
+            <>
                 <span>Hello World. My name is {this.state.firstName}</span>
 
                 <div>
@@ -41,8 +49,8 @@ class MyComponent extends Component {
 
                 <CreateUserComponent create = {this.handleCreate}/>
 
-                <DisplayUsersComponent listUser = {this.state.listUser}/>
-            </div>
+                <DisplayUsersComponent listUser = {this.state.listUser} delete = {this.handleDelete}/>
+            </>
         )
     }
 }
