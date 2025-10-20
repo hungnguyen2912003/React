@@ -10,6 +10,12 @@ class MyComponent extends Component {
         console.log(`Thank you for clicked this button <3`);
     }
 
+    handleRealNameButton = () => {
+        this.setState({
+            name: `Nguyen Khac Duy Hung`
+        })
+    }
+
     render() {
         return (
             <div>
@@ -17,6 +23,7 @@ class MyComponent extends Component {
 
                 <div>
                     <button onClick={this.handleClickButton}>Click me!</button>
+                    <button onClick={this.handleRealNameButton}>Show fullname at home</button>
                 </div>
             </div>
         )
