@@ -1,4 +1,5 @@
 import { Component } from "react";
+import CreateUserComponent from "./CreateUserComponent";
 
 class MainComponent extends Component {
 
@@ -30,6 +31,11 @@ class MainComponent extends Component {
                 <br/>
                 <div>
                     <button onClick={this.handleRealNameClick}>Show my real name</button>
+                </div>
+                <br/>
+
+                <div>
+                    <CreateUserComponent/>
                 </div>
             </>
         )
