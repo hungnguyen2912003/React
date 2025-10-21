@@ -11,6 +11,12 @@ class MainComponent extends Component {
         console.log(`You clicked this button!`);
     }
 
+    handleRealNameClick = () => {
+        this.setState({
+            name: 'Bo'
+        })
+    }
+
     render() {
         return (
             <>
@@ -20,6 +26,10 @@ class MainComponent extends Component {
                 
                 <div>
                     <button onClick={this.handleCLick}>Click me</button>
+                </div>
+                <br/>
+                <div>
+                    <button onClick={this.handleRealNameClick}>Show my real name</button>
                 </div>
             </>
         )
