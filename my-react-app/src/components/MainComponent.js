@@ -1,45 +1,36 @@
 import { Component } from "react";
 import CreateUserComponent from "./CreateUserComponent";
+import DisplayUserComponent from "./DisplayUserComponent";
 
 class MainComponent extends Component {
-
     state = {
-        name: 'Hưng Nguyễn'
+        listUser: [
+            { name: "Nguyễn Hưng", email: "hung@gmail.com", phone: "0123456789" },
+            { name: "Đặng Hiệp", email: "hiep@gmail.com", phone: "0987654321" },
+        ]
     }
 
-    //DOM Event
-    handleCLick = () => {
-        console.log(`You clicked this button!`);
-    }
-
-    handleRealNameClick = () => {
+    handleAddUser = (userObj) => {
         this.setState({
-            name: 'Bo'
-        })
+            listUser: [...this.state.listUser, userObj]
+        });
+    }
+
+    handleDeleteUser = (index) => {
+        const updatedList = this.state.listUser.filter((_, i) => i !== index);
+        this.setState({ listUser: updatedList });
     }
 
     render() {
         return (
-            <>
-                <div>
-                    <h4>My name is {this.state.name}</h4>
-                </div>
-                
-                <div>
-                    <button onClick={this.handleCLick}>Click me</button>
-                </div>
-                <br/>
-                <div>
-                    <button onClick={this.handleRealNameClick}>Show my real name</button>
-                </div>
-                <br/>
-
-                <div>
-                    <CreateUserComponent/>
-                </div>
-            </>
-        )
+            <div style={{ margin: "20px" }}>
+                <h2>Manage Users</h2>
+                <CreateUserComponent handleAddUser={this.handleAddUser} />
+                <hr />
+                <DisplayUserComponent users={this.state.listUser} handleDeleteUser={this.handleDeleteUser}/>
+            </div>
+        );
     }
 }
 
-export default MainComponent
+export default MainComponent;
